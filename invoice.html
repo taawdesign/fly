@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Receipt - Apple Canada Inc.</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+            color: #1d1d1f;
+            background: #fff;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #d2d2d7;
+            padding-bottom: 20px;
+        }
+        .apple-logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1d1d1f;
+        }
+        .company-address { font-size: 13px; color: #6e6e73; line-height: 1.6; }
+        .invoice-title {
+            text-align: right;
+        }
+        .invoice-title h1 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .invoice-title .do-not-pay {
+            font-size: 13px;
+            color: #bf4800;
+            font-weight: 600;
+        }
+        .order-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        .order-meta-block { flex: 1; }
+        .order-meta-block h3 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #6e6e73;
+            margin-bottom: 4px;
+        }
+        .order-meta-block p { font-size: 14px; }
+        .info-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            gap: 40px;
+        }
+        .info-block { flex: 1; }
+        .info-block h3 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #6e6e73;
+            margin-bottom: 6px;
+            border-bottom: 1px solid #e8e8ed;
+            padding-bottom: 4px;
+        }
+        .info-block p { font-size: 13px; line-height: 1.6; }
+        .order-details { margin-bottom: 30px; }
+        .order-details h2 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        thead th {
+            text-align: left;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            color: #6e6e73;
+            padding: 8px 10px;
+            border-bottom: 2px solid #d2d2d7;
+            white-space: nowrap;
+        }
+        thead th:not(:first-child) { text-align: right; }
+        tbody td {
+            padding: 10px;
+            font-size: 13px;
+            border-bottom: 1px solid #e8e8ed;
+        }
+        tbody td:not(:first-child) { text-align: right; }
+        .serial-no {
+            font-size: 12px;
+            color: #6e6e73;
+            padding-left: 10px;
+        }
+        .note {
+            font-size: 12px;
+            color: #6e6e73;
+            font-style: italic;
+            margin: 12px 0 20px 0;
+        }
+        .totals {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 30px;
+        }
+        .totals-table { width: 280px; }
+        .totals-table .row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            font-size: 14px;
+        }
+        .totals-table .row.total {
+            border-top: 2px solid #1d1d1f;
+            font-weight: 600;
+            font-size: 16px;
+            padding-top: 8px;
+        }
+        .totals-table .row.amount-due {
+            color: #bf4800;
+            font-weight: 600;
+        }
+        .payment-section { margin-bottom: 30px; }
+        .payment-section h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .additional-info {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 30px;
+            padding: 16px;
+            background: #f5f5f7;
+            border-radius: 8px;
+        }
+        .additional-info .info-item h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            color: #6e6e73;
+            margin-bottom: 2px;
+        }
+        .additional-info .info-item p { font-size: 14px; }
+        .policies {
+            font-size: 12px;
+            color: #6e6e73;
+            text-align: center;
+            margin-top: 30px;
+        }
+        .policies a { color: #06c; text-decoration: none; }
+        .policies a:hover { text-decoration: underline; }
+        @media print {
+            body { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <div class="apple-logo">&#63743; Apple Canada Inc.</div>
+            <div class="company-address">
+                120 Bremner Blvd.<br>
+                Suite 1600<br>
+                Toronto ON M5J 0A8<br>
+                Canada
+            </div>
+        </div>
+        <div class="invoice-title">
+            <h1>Invoice Receipt</h1>
+            <div class="do-not-pay">Do Not Pay</div>
+        </div>
+    </div>
+
+    <div class="order-meta">
+        <div class="order-meta-block">
+            <h3>Order Number</h3>
+            <p>W1586930552</p>
+        </div>
+        <div class="order-meta-block">
+            <h3>Order Date</h3>
+            <p>March 29, 2026</p>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <div class="info-block">
+            <h3>Sold To</h3>
+            <p>
+                AFFIRM<br>
+                AFFIRM CANADA HOLDINGS LTD<br>
+                SUITE 3740<br>
+                155 WELLINGTON ST WEST<br>
+                TORONTO ON M5V 3H1<br>
+                Canada
+            </p>
+        </div>
+        <div class="info-block">
+            <h3>Location</h3>
+            <p>
+                Nima Javidfar<br>
+                Apple Guildford Town Centre<br>
+                10355 152 Street<br>
+                Surrey BC V3R 7C1<br>
+                Canada
+            </p>
+        </div>
+        <div class="info-block">
+            <h3>Customer No.</h3>
+            <p>1432991</p>
+        </div>
+    </div>
+
+    <div class="order-details">
+        <h2>Order Details</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Product Number</th>
+                    <th>Item Price</th>
+                    <th>Qty Ordered</th>
+                    <th>Qty Fulfilled</th>
+                    <th>Extended Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>IPHONE 17 PRO MAX DBLUE 256GB-CAF</td>
+                    <td>MFYA4VC/A</td>
+                    <td>$1,749.00</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>$1,749.00</td>
+                </tr>
+                <tr>
+                    <td>Recycle Fee</td>
+                    <td></td>
+                    <td>$0.20</td>
+                    <td>1</td>
+                    <td></td>
+                    <td>$0.20</td>
+                </tr>
+                <tr>
+                    <td colspan="6" class="serial-no">Serial No.: (F4RDP6WC6X)</td>
+                </tr>
+                <tr>
+                    <td>TRADE-IN-GEN</td>
+                    <td>D6711G/A</td>
+                    <td>-$90.00</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>-$90.00</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="note">Items will be invoiced once they have shipped or are ready for pickup.</p>
+    </div>
+
+    <div class="totals">
+        <div class="totals-table">
+            <div class="row">
+                <span>Subtotal</span>
+                <span>$1,659.20</span>
+            </div>
+            <div class="row">
+                <span>Sales Tax</span>
+                <span>$209.90</span>
+            </div>
+            <div class="row total">
+                <span>Total</span>
+                <span>$1,869.10</span>
+            </div>
+            <div class="row amount-due">
+                <span>Amount Due</span>
+                <span>$0.00</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="payment-section">
+        <h3>Payment Methods</h3>
+        <p>$1,869.10 charged to Net 5 days</p>
+        <p>For a total of $1,869.10</p>
+    </div>
+
+    <div class="additional-info">
+        <div class="info-item">
+            <h4>Invoice Number</h4>
+            <p>MC62770278</p>
+        </div>
+        <div class="info-item">
+            <h4>Invoice Date</h4>
+            <p>March 29, 2026</p>
+        </div>
+        <div class="info-item">
+            <h4>Terms</h4>
+            <p>Net 5 days</p>
+        </div>
+    </div>
+
+    <div class="policies">
+        This order is subject to Apple's <a href="https://www.apple.com/ca/shop/open/salespolicies">Sales and Refunds Policies</a>
+    </div>
+</body>
+</html>
